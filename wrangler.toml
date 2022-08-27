@@ -1,0 +1,7 @@
+name = "upstash-astro"
+main = "dist/_worker.js"
+compatibility_date = "2022-08-20"
+node_compat = true
+
+[site]
+bucket = 'dist/static'
