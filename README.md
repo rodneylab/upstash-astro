@@ -8,9 +8,6 @@ To get going clone the starter code template and install the packages locally:
 
 ```shell
 pnpm create astro -- --template rodneylab/upstash-astro
-cd upstash-astro
-pnpm install
-pnpm astro add svelte
 ```
 
 ## 🚀 Server Side Rendering (SSR)
