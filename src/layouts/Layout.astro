@@ -1,0 +1,150 @@
+---
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props as Props;
+---
+
+<!DOCTYPE html>
+<html lang="en-GB">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" href="/favicon.ico" sizes="any" />
+		<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/manifest.webmanifest" />
+		<title>{title}</title>
+	</head>
+
+	<body>
+		<slot />
+
+		<style>
+			/* martel-regular - latin */
+			@font-face {
+				font-family: 'Martel';
+				font-style: normal;
+				font-weight: 400;
+				src: local(''), url('/fonts/martel-v10-latin-regular.woff2') format('woff2'),
+					/* Chrome 26+, Opera 23+, Firefox 39+ */ url('/fonts/martel-v10-latin-regular.woff')
+						format('woff');
+				/* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+			}
+
+			/* martel-700 - latin */
+			@font-face {
+				font-family: 'Martel';
+				font-style: normal;
+				font-weight: 700;
+				src: local(''), url('/fonts/martel-v10-latin-700.woff2') format('woff2'),
+					/* Chrome 26+, Opera 23+, Firefox 39+ */ url('/fonts/martel-v10-latin-700.woff')
+						format('woff');
+				/* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+			}
+
+			/* roboto-slab-regular - latin */
+			@font-face {
+				font-family: 'Roboto Slab';
+				font-style: normal;
+				font-weight: 400;
+				src: local(''), url('/fonts/roboto-slab-v24-latin-regular.woff2') format('woff2'),
+					/* Chrome 26+, Opera 23+, Firefox 39+ */ url('/fonts/roboto-slab-v24-latin-regular.woff')
+						format('woff');
+				/* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+			}
+
+			/* roboto-slab-700 - latin */
+			@font-face {
+				font-family: 'Roboto Slab';
+				font-style: normal;
+				font-weight: 700;
+				src: local(''), url('/fonts/roboto-slab-v24-latin-700.woff2') format('woff2'),
+					/* Chrome 26+, Opera 23+, Firefox 39+ */ url('/fonts/roboto-slab-v24-latin-700.woff')
+						format('woff');
+				/* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+			}
+
+			:root {
+				--spacing-px: 1px;
+				--spacing-px-2: 2px;
+				--spacing-0: 0;
+				--spacing-1: 0.25rem;
+				--spacing-2: 0.5rem;
+				--spacing-4: 1rem;
+				--spacing-6: 1.5rem;
+				--spacing-8: 2rem;
+				--spacing-16: 4rem;
+				--spacing-18: 4.5rem;
+				--spacing-20: 5rem;
+				--spacing-32: 8rem;
+
+				--max-width-wrapper: 48rem;
+				--max-width-full: 100%;
+
+				--colour-dark: hsl(60deg 14% 1%);
+				/* rangoon green */
+				--colour-light: hsl(186deg 28% 93%);
+				/* aqua haze */
+				--colour-brand: hsl(210deg 77% 57%);
+				/* picteon blue */
+				--colour-theme: hsl(347deg 4% 41%);
+				/* scorpion */
+				--colour-alt: hsl(44deg 98% 62%);
+				/* bright sun */
+
+				--colour-light-tint-60: hsl(195deg 29% 97%);
+				--colour-light-tint-20: hsl(187deg 29% 95%);
+				--colour-theme-tint-30: hsl(350deg 3% 59%);
+				--colour-alt-tint-60: hsl(44deg 97% 85%);
+
+				--shadow-color: 210deg 7% 60%;
+				--shadow-elevation-low: -1px 1px 1.6px hsl(var(--shadow-color) / 0.34),
+					-1.7px 1.7px 2.7px -1.2px hsl(var(--shadow-color) / 0.34),
+					-4px 4px 6.4px -2.5px hsl(var(--shadow-color) / 0.34);
+
+				--font-family-heading: Roboto Slab;
+				--font-family-body: Martel;
+
+				--font-weight-normal: 400;
+				--font-weight-bold: 700;
+
+				--font-size-root: 16px;
+				--font-size-0: 0.833rem;
+				--font-size-1: 1rem;
+				--font-size-2: 1.25rem;
+				--font-size-3: 1.563rem;
+				--font-size-4: 1.953rem;
+				--font-size-5: 2.441rem;
+				--font-size-6: 3.052rem;
+				--font-size-7: 3.815rem;
+			}
+
+			:after,
+			:before,
+			* {
+				box-sizing: border-box;
+			}
+
+			html {
+				font-family: var(--font-family-body);
+				background-color: var(--colour-light-tint-60);
+				color: var(--colour-dark);
+				accent-color: var(--colour-theme);
+				caret-color: var(--colour-brand);
+			}
+
+			h1,
+			h2,
+			h3 {
+				font-family: var(--font-family-heading);
+			}
+
+			h2,
+			h3 {
+				font-size: var(--font-size-4);
+			}
+		</style>
+	</body>
+</html>

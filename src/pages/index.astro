@@ -1,0 +1,94 @@
+---
+import HeadingBar from '~components/HeadingBar.svelte';
+import NotesList from '~components/NotesList.svelte';
+import Layout from '~layouts/Layout.astro';
+import type { Note } from '~types/note';
+
+const editMode = false;
+
+const notes: Note[] = [];
+const selectedNote = notes[0];
+
+const title = 'Upstash Astro Notes';
+---
+
+<Layout title={title}>
+	<main class="wrapper">
+		<h1>{title}</h1>
+		<div class="container">
+			<header class="heading">
+				{selectedNote ? <HeadingBar note={selectedNote} {editMode} /> : null}
+			</header>
+			<aside class="list">
+				<NotesList client:load {notes} selectedId={selectedNote?.id} {editMode} />
+			</aside>
+			<section class="note"></section>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	h1 {
+		font-family: var(--font-family-heading);
+		font-size: var(--font-size-4);
+		margin-bottom: var(--spacing-16);
+	}
+
+	@media screen and (width >=48rem) {
+		h1 {
+			font-size: var(--font-size-6);
+		}
+	}
+
+	.wrapper {
+		width: min(var(--max-width-full) - var(--spacing-16), var(--max-width-wrapper));
+		margin: var(--spacing-4) auto var(--spacing-32);
+		padding-top: var(--spacing-16);
+		min-height: 125vh;
+	}
+
+	.container {
+		display: grid;
+		--heading-row-height: var(--spacing-18);
+		--body-height: 25rem;
+		grid-template-columns: auto;
+		grid-template-rows: auto var(--heading-row-height) var(--body-height);
+		grid-template-areas:
+			'list'
+			'heading'
+			'note';
+		border: var(--spacing-px) solid var(--colour-theme);
+		border-radius: var(--spacing-1);
+		background-color: var(--colour-light-tint-20);
+		box-shadow: var(--shadow-elevation-low);
+	}
+
+	@media screen and (width >=48rem) {
+		.container {
+			grid-template-columns: 15rem auto;
+			grid-template-rows: var(--heading-row-height) var(--body-height);
+			grid-template-areas:
+				'list heading'
+				'list note';
+		}
+	}
+
+	.heading {
+		grid-area: heading;
+		border-bottom: var(--spacing-px) solid var(--colour-dark);
+		background-color: var(--colour-theme);
+		color: var(--colour-light);
+		font-family: var(--font-family-heading);
+	}
+
+	.list {
+		grid-area: list;
+		background-color: var(--colour-light-tint-60);
+		border-radius: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-1);
+	}
+
+	.note {
+		grid-area: note;
+		border-radius: var(--spacing-0) var(--spacing-0) var(--spacing-1) var(--spacing-0);
+	}
+</style>
