@@ -1,10 +1,8 @@
 # Get Started with Astro and Redis Tutorial
 
-🚧 **This is starter code for an upcoming Astro Redis tutorial. The tutorial is not quite ready yet, but we will add a link as soon as it is!**
-
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/rodneylab/upstash-astro)
 
-To get going clone the starter code template and install the packages locally:
+This is starter code for the <a href="https://upstash.com/blog/getting-started-astro-redis?utm_source=Rodney1">Get Started with Astro and Redis tutorial</a>. In that tutorial we create a basic notes app using Astro in SSR mode. We use Cloudflare Workers to interface with the Upstash serverless database. To get going clone the starter then follow the link to complete the tutorial:
 
 ```shell
 pnpm create astro -- --template rodneylab/upstash-astro
